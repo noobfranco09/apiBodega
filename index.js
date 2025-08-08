@@ -12,3 +12,8 @@ app.listen('4100')
 {
     console.log('Ejecutándose correctamente en el puerto 4100');
 }
+
+app.use((err, req, res, next) => {
+  console.error('Error capturado:', err);
+  res.status(500).json({ error: 'Error interno del servidor' });
+});
